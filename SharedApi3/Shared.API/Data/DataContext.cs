@@ -10,6 +10,8 @@ namespace Shared.API.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -17,6 +19,8 @@ namespace Shared.API.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>().HasIndex(x=>x.Email).IsUnique();
+            modelBuilder.Entity<Employee>().HasIndex(x => x.Email).IsUnique();
+
         }
     }
 }
